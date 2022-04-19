@@ -36,7 +36,7 @@ export default function useStatistics() {
     const retrieveSalesFromStore = () => {
         const storedSales = localStorage.getItem('storedSales');
         sales.value = storedSales
-? storedSales.split(',').map(function(x){return parseInt(x);})
+? storedSales.split(',').map(function(x){return parseFloat(x);})
 : [];
     };
     retrieveSalesFromStore();

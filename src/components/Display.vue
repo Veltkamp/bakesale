@@ -1,59 +1,74 @@
 <template>
     <div class="container">
         <div class="row">
-            <div class="col">
-                <div class="total">
-                    <span>Total:&nbsp;</span>
-                    <vue3-autocounter 
-                        ref="counter"
-                        :start-amount="totalValues[0]"
-                        :end-amount="totalValues[1]"
-                        :duration="1"
-                        prefix="&euro;"
-                        suffix=""
-                        separator=","
-                        decimal-separator="."
-                        :decimals="2"
-                        :autoinit="true"
-                    />
+            <div class="col-6">
+                <div class="card total">
+                    <div class="card-header">
+                        <span>Total</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <vue3-autocounter 
+                                ref="counter"
+                                :start-amount="totalValues[0]"
+                                :end-amount="totalValues[1]"
+                                :duration="1"
+                                prefix="&euro;"
+                                suffix=""
+                                separator=","
+                                decimal-separator="."
+                                :decimals="2"
+                                :autoinit="true"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        <div class="col-6">
+            <div class="card average">
+                <div class="card-header">
+                    <span>Average</span>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                        <vue3-autocounter 
+                            ref="counter"
+                            :start-amount="averageValues[0]"
+                            :end-amount="averageValues[1]"
+                            :duration="1"
+                            prefix="&euro;"
+                            suffix=""
+                            separator=","
+                            decimal-separator="."
+                            :decimals="2"
+                            :autoinit="true"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="row">
         <div class="col">
-            <div class="average">
-                <span>Average:&nbsp;</span>
-                <vue3-autocounter 
-                    ref="counter"
-                    :start-amount="averageValues[0]"
-                    :end-amount="averageValues[1]"
-                    :duration="1"
-                    prefix="&euro;"
-                    suffix=""
-                    separator=","
-                    decimal-separator="."
-                    :decimals="2"
-                    :autoinit="true"
-                />  
+            <div class="card top">
+                <div class="card-header">
+                    <span>Top {{ topAmount }}</span>
+                </div>
+
+                <div class="card-body">
+                    <div class="card-text">
+                        <ul>
+                            <li 
+                                v-for="(number,index) in statistics.top"
+                                :key="'number_' + index"
+                            >
+                                #{{ index+1 }} &euro;{{ number }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div class="row">
-        <div class="col">
-            <div class="top">
-                <span>Top {{ topAmount }}: </span>
-                <ul>
-                    <li 
-                        v-for="(number,index) in statistics.top"
-                        :key="'number_' + index"
-                    >
-                        #{{ index+1 }} &euro;{{ number }}
-                    </li>
-                </ul>
-            </div>
         </div>
     </div>
 </template>
@@ -82,25 +97,9 @@ channel.onmessage = (e) => {
 </script>
 
 <style lang="scss" scoped>
-.total {
-    font-size:5em;
-    display: flex;
-    justify-content: center;
-}
-
-.average {
-    font-size:3em;
-    display: flex;
-    justify-content: center;
-}
 
 .top {
-    font-size: 2em;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
+
     ul {
         list-style: none;
     }
