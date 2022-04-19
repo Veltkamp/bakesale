@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <a href="/Display">Go to display</a>
+                <router-link to="/display">Go to display</router-link>
             </div>
         </div>
 

@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import Main from '/src/components/Main.vue';
 import Display from '/src/components/Display.vue';
+
 const routes = [
     {
         path: '/',
@@ -8,8 +9,8 @@ const routes = [
         component: Main,
     },
     {
-        path: '/Display',
-        name: 'Display',
+        path: '/display',
+        name: 'display',
         component: Display,
     },
 ];
