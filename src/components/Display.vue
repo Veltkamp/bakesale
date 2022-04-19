@@ -25,50 +25,50 @@
                 </div>
             </div>
 
-        <div class="col-6">
-            <div class="card average">
-                <div class="card-header">
-                    <span>Average</span>
-                </div>
-                <div class="card-body">
-                    <div class="card-text">
-                        <vue3-autocounter 
-                            ref="counter"
-                            :start-amount="averageValues[0]"
-                            :end-amount="averageValues[1]"
-                            :duration="1"
-                            prefix="&euro;"
-                            suffix=""
-                            separator=","
-                            decimal-separator="."
-                            :decimals="2"
-                            :autoinit="true"
-                        />
+            <div class="col-6">
+                <div class="card average">
+                    <div class="card-header">
+                        <span>Average</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <vue3-autocounter 
+                                ref="counter"
+                                :start-amount="averageValues[0]"
+                                :end-amount="averageValues[1]"
+                                :duration="1"
+                                prefix="&euro;"
+                                suffix=""
+                                separator=","
+                                decimal-separator="."
+                                :decimals="2"
+                                :autoinit="true"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="col">
-            <div class="card top">
-                <div class="card-header">
-                    <span>Top {{ topAmount }}</span>
-                </div>
+            <div class="col">
+                <div class="card top">
+                    <div class="card-header">
+                        <span>Top {{ topAmount }}</span>
+                    </div>
 
-                <div class="card-body">
-                    <div class="card-text">
-                        <ul>
-                            <li 
-                                v-for="(number,index) in statistics.top"
-                                :key="'number_' + index"
-                            >
-                                #{{ index+1 }} &euro;{{ number }}
-                            </li>
-                        </ul>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <ul>
+                                <li 
+                                    v-for="(number,index) in statistics.top"
+                                    :key="'number_' + index"
+                                >
+                                    #{{ index+1 }} &euro;{{ number }}
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 </template>
