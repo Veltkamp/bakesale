@@ -4,7 +4,7 @@
             <div class="col title my-5">
                 <h1>Donations</h1>
                 <span class="mb-2">Help us raise money for our Ukrainian colleagues of the 32-m radio telescope in Zolovich!</span>
-                <span>They are volunteering to carry victims of Russian attacks to hospitals using their private cars. We are helping raise money to buy them an <strong>ambulance and medical supplies</strong></span>
+                <span>They are volunteering to carry victims of the war to hospitals using their private cars. We are helping raise money to buy them an <strong>ambulance and medical supplies</strong></span>
             </div>
         </div>
         <div class="row">
