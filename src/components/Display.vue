@@ -64,12 +64,17 @@
 
                     <div class="card-body">
                         <div class="card-text">
-                            <ul>
+                            <ul class="top-list">
                                 <li 
                                     v-for="(number,index) in statistics.top"
                                     :key="'number_' + index"
                                 >
-                                    #{{ index+1 }} &euro;{{ number }}
+                                    <span>
+                                        #{{ index+1 }}
+                                    </span>
+                                    <span>
+                                        &euro;{{ getFormattedNumber(number) }}
+                                    </span>
                                 </li>
                             </ul>
                         </div>
@@ -95,6 +100,10 @@ watch(statistics, (currentValue, previousValue) => {
     averageValues.value = [previousValue.average, currentValue.average];
 });
 
+const getFormattedNumber = (number) => {
+    return parseFloat(number).toFixed(2);
+}
+
 const channel = new BroadcastChannel('statistics');
 channel.onmessage = (e) => {
     console.log(e);
@@ -107,7 +116,8 @@ channel.onmessage = (e) => {
 
 .container {
     background-color: #fff;
-    height: 100%
+    height: 100%;
+    min-height: 100vh;
 }
 
 .title {
@@ -175,6 +185,12 @@ channel.onmessage = (e) => {
         list-style: none;
         margin: 0;
         padding: 0;
+        width: 60%;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 }
 </style>
